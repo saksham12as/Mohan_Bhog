@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Order Confirmed | Mohan Bhog Atta</title>
+  <link rel="stylesheet" href="{% static 'css/payment_done.css' %}">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <img src="{% static 'images/logo.png' %}" class="logo" />
+      <nav class="nav-center">
+        <ul class="nav-links">
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'products' %}">Products</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Confirmation Section -->
+  <section class="confirmation">
+    <div class="confirmation-box">
+      <img src="{% static 'images/verified.png' %}" alt="Success" class="success-icon">
+      <h1>Order Confirmed!</h1>
+      <p>Thank you for purchasing from <strong>Mohan Bhog Atta</strong>.</p>
+      <p>Your payment was successful and your order is now being processed.</p>
+
+      <hr class="divider">
+
+      <a href="{% url 'home' %}" class="btn">Return to Home</a>
+    </div>
+  </section>
+
+</body>
+</html>

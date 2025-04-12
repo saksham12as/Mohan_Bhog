@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup - Mohan Bhog</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <style>
+      .message {
+        text-align: center;
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 6px;
+        font-weight: 500;
+      }
+      .message.error {
+        background-color: #f8d7da;
+        color: #842029;
+      }
+      .message.success {
+        background-color: #d1e7dd;
+        color: #0f5132;
+      }
+    </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Signup</h2>
+
+    <!-- ✅ Display success or error messages -->
+    {% if messages %}
+      {% for message in messages %}
+        <div class="message {% if message.tags %}{{ message.tags }}{% endif %}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    <form method="POST">
+      {% csrf_token %}
+      <input type="text" name="username" placeholder="Username" required><br>
+      <input type="email" name="email" placeholder="Email" required><br>
+      <input type="password" name="password" placeholder="Password" required><br>
+      <button class="btn" type="submit">Signup</button>
+    </form>
+    
+    <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+  </div>
+</body>
+</html>

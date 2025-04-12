@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Mohan Bhog Atta</title>
+  <link rel="stylesheet" href="{% static 'css/about.css' %}" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <img src="{% static 'images/logo.png' %}" alt="Mohan Bhog Logo" class="logo" />
+      <div class="nav-center">
+        <nav>
+          <ul class="nav-links">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}" class="active">About</a></li>
+            <li><a href="{% url 'products' %}">Products</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            <li><a href="{% url 'cart' %}">🛒 Cart</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Us Section -->
+  <section class="about-section fade-in">
+    <div class="about-container">
+      <div class="about-image">
+        <img src="{% static 'images/about_machine.png' %}" alt="Flour Grinding Machine" />
+      </div>
+      <div class="about-text">
+        
+        <h2>Our Legacy</h2>
+        <p>
+          Nestled in the heart of <strong>Jalandhar Cantt, Punjab</strong>, <strong>Mohan Bhog Flour Mills</strong> has been a trusted name in Indian households since the <strong>1960s</strong>. Our journey began with a simple yet powerful mission — to bring purity, freshness, and quality to your kitchen.
+        </p>
+        <p>
+          Over the decades, we have evolved with the times while preserving the traditional values of milling. Today, we proudly offer a wide range of premium products including <strong>wheat flour, gram flour (besan), maize flour (makki atta), and jaggery (gur)</strong> — all processed in our <strong>state-of-the-art facility</strong> using modern machinery and strict hygiene practices.
+        </p>
+        <p>
+          What sets us apart is our unwavering commitment to <strong>genuineness, consistency, and customer satisfaction</strong>. Every grain is handled with care and processed under expert supervision to ensure nothing but the best reaches your home.
+        </p>
+        <p>
+          Join the thousands of families who have trusted Mohan Bhog for generations. We’re more than just a flour mill — we’re a part of your tradition.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

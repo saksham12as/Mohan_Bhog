@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | Mohan Bhog Atta</title>
+  <link rel="stylesheet" href="{% static 'css/contact.css' %}" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <img src="{% static 'images/logo.png' %}" alt="Mohan Bhog Logo" class="logo" />
+      <nav class="nav-center">
+        <ul class="nav-links">
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'products' %}">Products</a></li>
+          <li><a href="{% url 'contact' %}" class="active">Contact</a></li>
+          <li><a href="{% url 'cart' %}">🛒 Cart</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contact Layout -->
+  <section class="contact-section">
+    <div class="contact-grid">
+      
+      <!-- LEFT: Map + Info -->
+      <div class="left-column">
+        <div class="map">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3409.39146381552!2d75.6268765!3d31.292923799999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a5983c8adde5f%3A0x45496645a8c79f20!2sMohan%20Bhog%20Atta!5e0!3m2!1sen!2sin!4v1744015616543!5m2!1sen!2sin" 
+            width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy">
+          </iframe>
+        </div>
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+          <p><strong>Owner:</strong> Naman Goel</p>
+          <p><strong>Phone:</strong> +91-8146032069</p>
+          <p><strong>Email:</strong> mohanbhog@gmail.com</p>
+          <p><strong>Address:</strong> Shop no 57/11 ,Dana Mandi, Jalandhar Cantt, Punjab</p>
+        </div>
+      </div>
+
+      <!-- RIGHT: Form -->
+      <div class="form-box">
+        <h2>Send us a message</h2>
+        <form method="POST">
+          {% csrf_token %}
+          <div class="form-group">
+            <label>Name</label>
+            {{ form.name }}
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            {{ form.email }}
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            {{ form.message }}
+          </div>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>

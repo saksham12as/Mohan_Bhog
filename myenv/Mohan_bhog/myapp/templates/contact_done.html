@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Message Sent | Mohan Bhog Atta</title>
+  <link rel="stylesheet" href="{% static 'css/contact_done.css' %}">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <img src="{% static 'images/logo.png' %}" alt="Mohan Bhog Logo" class="logo" />
+      <nav class="nav-center">
+        <ul class="nav-links">
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'products' %}">Products</a></li>
+          <li><a href="{% url 'contact' %}" class="active">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="confirmation">
+    <div class="confirmation-box">
+      <h1>Thank You!</h1>
+      <p>Your message has been successfully sent.</p>
+      <hr class="divider">
+      <a href="{% url 'home' %}" class="btn">Back to Home</a>
+    </div>
+  </section>
+
+</body>
+</html>

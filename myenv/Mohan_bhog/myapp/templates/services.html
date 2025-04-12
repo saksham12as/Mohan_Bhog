@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Mohan Bhog</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About Us</a>
+            <a href="/services">Services</a>
+            <a href="/products">Products</a>
+            <a href="/contact">Contact Us</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h1>Our Services</h1>
+            <div class="service">
+                <img src="{% static 'images/service_image_1.png' %}" alt="Rice Flour Grinding">
+                <h3>Rice Flour Grinding</h3>
+                <p>We offer high-quality rice flour grinding services.</p>
+                <button>Enquire Now</button>
+            </div>
+            <div class="service">
+                <img src="{% static 'images/service_image_2.png' %}" alt="Wheat Flour Grinding">
+                <h3>Wheat Flour Grinding</h3>
+                <p>Premium wheat flour grinding with top-of-the-line equipment.</p>
+                <button>Enquire Now</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Mohan Bhog. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+

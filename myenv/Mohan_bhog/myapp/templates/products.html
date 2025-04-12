@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products | Mohan Bhog Atta</title>
+  <link rel="stylesheet" href="{% static 'css/products.css' %}" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <img src="{% static 'images/logo.png' %}" alt="Mohan Bhog Logo" class="logo" />
+      <nav class="nav-center">
+        <ul class="nav-links">
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'products' %}" class="active">Products</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+          <li><a href="{% url 'cart' %}">🛒 Cart</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Products Section -->
+  <section class="products-section">
+    <div class="products-container">
+
+      <div class="product-card">
+        <h3>Whole Wheat Flour - 5kg</h3>
+        <img src="{% static 'images/product1.png' %}" alt="Whole Wheat Flour">
+        <p>₹180</p>
+        <div class="btn-group">
+          <a href="{% url 'payment' 1 %}" class="btn">Buy Now</a>
+          <a href="{% url 'add_to_cart' 1 %}" class="btn">Add to Cart</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <h3>Whole Wheat Flour - 10kg</h3>
+        <img src="{% static 'images/product2.png' %}" alt="Whole Wheat Flour 10kg">
+        <p>₹360</p>
+        <div class="btn-group">
+          <a href="{% url 'payment' 2 %}" class="btn">Buy Now</a>
+          <a href="{% url 'add_to_cart' 2 %}" class="btn">Add to Cart</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <h3>Gram Flour (Besan) - 1kg</h3>
+        <img src="{% static 'images/product3.png' %}" alt="Besan">
+        <p>₹80</p>
+        <div class="btn-group">
+          <a href="{% url 'payment' 3 %}" class="btn">Buy Now</a>
+          <a href="{% url 'add_to_cart' 3 %}" class="btn">Add to Cart</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <h3>Maize Flour (Makki) - 1kg</h3>
+        <img src="{% static 'images/product4.png' %}" alt="Makki Flour">
+        <p>₹900</p>
+        <div class="btn-group">
+          <a href="{% url 'payment' 4 %}" class="btn">Buy Now</a>
+          <a href="{% url 'add_to_cart' 4 %}" class="btn">Add to Cart</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <h3>Jaggery - 10kg</h3>
+        <img src="{% static 'images/product5.jpg' %}" alt="Jaggery">
+        <p>₹500</p>
+        <div class="btn-group">
+          <a href="{% url 'payment' 5 %}" class="btn">Buy Now</a>
+          <a href="{% url 'add_to_cart' 5 %}" class="btn">Add to Cart</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <h3>Jaggery Powder - 30kg</h3>
+        <img src="{% static 'images/product6.jpg' %}" alt="Jaggery Powder">
+        <p>₹1380</p>
+        <div class="btn-group">
+          <a href="{% url 'payment' 6 %}" class="btn">Buy Now</a>
+          <a href="{% url 'add_to_cart' 6 %}" class="btn">Add to Cart</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>

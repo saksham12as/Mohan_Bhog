@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Cart Payment | Mohan Bhog</title>
+  <link rel="stylesheet" href="{% static 'css/payment.css' %}">
+  <style>
+    .form-row select {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  appearance: none;
+  background-color: white;
+  color: #333;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.form-row input,
+.form-row textarea {
+  flex: 1;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+
+    .qr-only {
+      margin-top: 15px;
+    }
+
+    .btn {
+      background-color: #d4a45a;
+      color: white;
+      font-weight: bold;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #b78b43;
+    }
+
+    .form-container textarea {
+      width: 100%;
+      resize: vertical;
+    }
+
+    .qr-img {
+      max-width: 150px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .form-container {
+      max-width: 800px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo" />
+      <nav class="nav-center">
+        <ul class="nav-links">
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'products' %}">Products</a></li>
+          <li><a href="{% url 'cart' %}">Cart</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Checkout -->
+  <section class="payment-section">
+    <div class="form-container">
+      <h2>Order Summary</h2>
+
+      {% for item in cart_items %}
+        <p><strong>{{ item.product.name }}</strong> - Qty: {{ item.quantity }} - ₹{{ item.total_price }}</p>
+      {% endfor %}
+      <hr />
+      <p><strong>Total Amount: ₹{{ total }}</strong></p>
+
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+      
+        <!-- Row 1: First & Last Name -->
+        <div class="form-row">
+          <input type="text" name="first_name" placeholder="First Name" required>
+          <input type="text" name="last_name" placeholder="Last Name" required>
+        </div>
+      
+        <!-- Row 2: Email -->
+        <div class="form-row">
+          <input type="email" name="email" placeholder="Email" required>
+        </div>
+      
+        <!-- Row 3: Phone -->
+        <div class="form-row">
+          <input type="text" name="phone" placeholder="Phone" required>
+        </div>
+      
+        <!-- Row 4: Address -->
+        <div class="form-row">
+          <textarea name="address" placeholder="Shipping Address" required></textarea>
+        </div>
+      
+        <!-- Row 5: Payment Mode -->
+        <div class="form-row">
+          
+          <select name="payment_mode" id="payment-mode" required>
+            <option value="cod">Cash on Delivery</option>
+            <option value="qr">QR Code</option>
+          </select>
+        </div>
+      
+        <!-- QR Section -->
+        <div class="form-row qr-only" style="display: none;">
+          <img src="{% static 'images/qr.jpg' %}" alt="QR Code" class="qr-img" />
+          <input type="file" name="payment_screenshot" accept="image/*" />
+        </div>
+      
+        <!-- Submit Button -->
+        <div class="form-row">
+          <button type="submit" class="btn">Confirm Payment</button>
+        </div>
+      </form>
+      
+    </div>
+  </section>
+
+  <script>
+    const paymentMode = document.getElementById('payment-mode');
+    const qrSection = document.querySelector('.qr-only');
+    paymentMode.addEventListener('change', () => {
+      qrSection.style.display = paymentMode.value === 'qr' ? 'block' : 'none';
+    });
+  </script>
+</body>
+</html>

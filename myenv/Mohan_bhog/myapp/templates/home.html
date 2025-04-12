@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohan Bhog Atta</title>
+  <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+</head>
+
+<body>
+
+
+  <!-- Header -->
+  <header>
+    <div class="navbar">
+      <img src="{% static 'images/logo.png' %}" alt="Mohan Bhog Logo" class="logo" />
+      <ul class="nav-links">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'products' %}">Products</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+        <li><a href="{% url 'cart' %}">🛒 Cart</a></li>
+
+        {% if request.session.username %}
+        <li class="dropdown-inline">
+          <span class="username-text">Hi, {{ request.session.username }}</span>
+          <a href="{% url 'logout' %}" class="logout-link">,Logout</a>
+        </li>
+        
+        </li>
+        {% else %}
+        <li><a href="{% url 'login' %}">Login / Signup</a></li>
+        {% endif %}
+
+
+      </ul>
+      <a href="tel:+918146032069" class="call-btn">📞 Call now</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" style="background: url('{% static 'images/banner.jpg' %}') no-repeat center center / cover;">
+    <div class="overlay">
+      <div class="hero-content">
+        <h1>Mohan Bhog</h1>
+        <p>Efficient and Convenient– <strong> Freshly Milled Flour Delivered to Your Doorstep</strong></p>
+        <div class="hero-buttons">
+          <a href="{% url 'products' %}" class="btn">Explore Products</a>
+          <a href="{% url 'contact' %}" class="btn-secondary">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+
+</html>
